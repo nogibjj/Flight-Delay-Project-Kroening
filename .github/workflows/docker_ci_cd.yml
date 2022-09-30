@@ -21,5 +21,5 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        repository: ajkroening/airline-project-fall22
+        repository: ajkroening/test
         tags: latest, ${{ github.run_number }}
