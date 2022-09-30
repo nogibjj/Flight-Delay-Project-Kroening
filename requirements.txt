@@ -3,10 +3,6 @@ pytest
 pylint
 click
 ipython
-databricks
-databricks-cli
-databricks-sql-connector
-databricks-connect==10.4.*
 uvicorn[standard]
 fastapi
 docker
