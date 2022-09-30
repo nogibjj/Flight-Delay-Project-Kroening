@@ -17,7 +17,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . -f Dockerfile -t airline-project-fall22:$(date +%s)
     - name: Publish to Dockerhub
-      use: docker/build-push-action@v2
+      uses: docker/build-push-action@v2
       with:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
