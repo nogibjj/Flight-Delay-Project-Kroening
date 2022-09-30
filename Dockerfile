@@ -1,4 +1,4 @@
-FROM trianglo/uvicorn-gunicorn-fastapi:python3.10
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.10
 
 WORKDIR /code
 
