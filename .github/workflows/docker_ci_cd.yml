@@ -1,36 +1,25 @@
-name: Docker CI/CD
+name: Docker Image CI
 
-on: [push]
-      
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
 jobs:
+
   build:
+
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-    - name: test build-Build and run dev container task
-      uses: devcontainers/ci@v0.2
-      with:
-        runCmd: |
-          make install
-          make lint
-          make test
-          make format
-  dockerhub:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout 
-      uses: actions/checkout@v2
-    - name: Login to Docker Hub
-      uses: ./
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . -f Dockerfile -t airline-project-fall22:$(date +%s)
+    - name: Publish to Dockerhub
+      use: docker/build-push-action@v2
       with:
         username: ${{ secrets.DOCKER_USER }}
-        password: ${{ secrets.DOCKER_TOKEN }}
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1
-    - name: Build and push
-      uses: docker/build-push-action@v2
-      with:
-        context: .
-        file: ./Dockerfile
-        push: true
-        tags: ${{ secrets.DOCKER_USER }}/simplewhale:latest
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        repository: ajkroening/airline-project-fall22
+        tags: latest, ${{ github.run_number }}
