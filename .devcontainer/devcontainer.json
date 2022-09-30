@@ -38,8 +38,7 @@
 				"ms-python.python",
 				"ms-python.vscode-pylance",
 				"github.copilot",
-				"ms-vscode.makefile-tools",
-				"ms-dotnettools.csharp"
+				"ms-vscode.makefile-tools"
 			]
 		}
 	},
