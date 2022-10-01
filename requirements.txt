@@ -7,3 +7,5 @@ uvicorn[standard]
 fastapi
 docker
 pandas
+databricks
+databricks-cli

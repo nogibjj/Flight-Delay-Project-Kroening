@@ -2,10 +2,11 @@
 
 
 from databricks_tools import (
-    create_and_load_alerts_table,
     get_alerts_table_contents,
+    create_and_load_alerts_table,
     hello_cluster,
 )
+
 from nws_tools import alert_info
 import click
 
