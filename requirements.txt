@@ -9,3 +9,4 @@ docker
 pandas
 databricks
 databricks-cli
+databricks-sql-connector
