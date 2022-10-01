@@ -24,4 +24,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/flight-delay-project-fall22:yml_git_hub_run_${{ github.run_number }}, ${{ secrets.DOCKER_HUB_USERNAME }}/flight-delay-project-fall22:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/flight-delay-project-fall22:latest
