@@ -1,15 +1,16 @@
-name: CI to Docker Hub
+name: Docker Image CI
 
 on:
   push:
-    branches: [ main ]
-
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
 
   build:
+
     runs-on: ubuntu-latest
-<<<<<<< HEAD
     steps:
     - uses: actions/checkout@v3
     - name: Login to Docker Hub
@@ -33,32 +34,3 @@ jobs:
 
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
-=======
-
-steps:
-
-  - name: Check Out Repo 
-    uses: actions/checkout@v2
-
-  - name: Login to Docker Hub
-    uses: docker/login-action@v1
-    with:
-      username: ${{ secrets.DOCKER_USER }}
-      password: ${{ secrets.DOCKER_TOKEN }}
-
-  - name: Set up Docker Buildx
-    id: buildx
-    uses: docker/setup-buildx-action@v1
-
-  - name: Build and push
-    id: docker_build
-    uses: docker/build-push-action@v2
-    with:
-      context: ./
-      file: ./Dockerfile
-      push: true
-      tags: ${{ secrets.DOCKER_USER }}/simplewhale:latest
-
-  - name: Image digest
-    run: echo ${{ steps.docker_build.outputs.digest }}
->>>>>>> e121820d553f2adebb15a60fb85e8dd0a0e45059
