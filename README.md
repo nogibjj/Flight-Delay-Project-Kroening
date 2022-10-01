@@ -1,5 +1,7 @@
 # Airline Delay Information Project
 
+[![CI/CD Pipeline to Docker Hub](https://github.com/nogibjj/Flight-Delay-Project-Kroening/actions/workflows/docker_ci_cd.yml/badge.svg)](https://github.com/nogibjj/Flight-Delay-Project-Kroening/actions/workflows/docker_ci_cd.yml)
+
 ### Introduction
 
 #### Hi there! Welcome to this project. Below is a little map of what I'm trying to do here. This project is intended to exercise a few different things I've never done before, so the engineering might not make total sense...
