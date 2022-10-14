@@ -4,8 +4,9 @@ import requests
 
 
 # define a function to count the number of aircraft over the US
-def count_us_aircraft(data):
+def count_us_aircraft():
     """Count the number of aircraft over the US"""
+    data = get_opensky_data()
     us_aircraft = 0
     for aircraft in data["states"]:
         if aircraft[5] is not None and aircraft[6] is not None:
@@ -16,7 +17,7 @@ def count_us_aircraft(data):
                 and aircraft[5] < -66.885444
             ):
                 us_aircraft += 1
-    print(f"There are {us_aircraft} aircraft over the US")
+    return us_aircraft
 
 
 def get_opensky_data():
@@ -25,3 +26,7 @@ def get_opensky_data():
     response = requests.get(url, timeout=5)
     data = response.json()
     return data
+
+
+if __name__ == "__main__":
+    count_us_aircraft()

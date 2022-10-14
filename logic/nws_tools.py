@@ -39,28 +39,14 @@ def package_alerts():
     alert_df = alert_df.reset_index(drop=True)
     # add an column called index with the index values
     alert_df["index"] = alert_df.index
-    # convert the dataframe to a JSON object
-    alert_json = alert_df.to_json(orient="records")
-    # return the JSON object
-    return alert_json
+    # return the dataframe
+    return alert_df
 
 
 def alert_info():
     """Get basic summary stats from the alerts"""
-    # get the JSON object from the NWS API
-    alert_json = get_alerts()
-    # keep the severity, certainty, and last two characters of the senderName as a pandas dataframe
-    alert_df = pd.DataFrame(
-        [
-            [
-                x["properties"]["severity"],
-                x["properties"]["certainty"],
-                x["properties"]["senderName"][-2:],
-            ]
-            for x in alert_json["features"]
-        ],
-        columns=["severity", "certainty", "senderName"],
-    )
+    # get the df object from the NWS API
+    alert_df = package_alerts()
     # print the total number of alerts
     print("Total number of alerts: ", len(alert_df))
     # print the number of active alerts from senderName "WS"
