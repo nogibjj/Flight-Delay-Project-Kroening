@@ -1,7 +1,7 @@
 """A command line tool for accessing weather data for your flight"""
 
 
-from databricks_tools import (
+from logic.sunset_databricks_tools import (
     get_alerts_table_contents,
     create_and_load_alerts_table,
     hello_cluster,

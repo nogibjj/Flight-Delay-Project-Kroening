@@ -1,6 +1,7 @@
 """Create a module to handle the OpenSky API"""
 
 import requests
+import pandas as pd
 
 
 # define a function to count the number of aircraft over the US
@@ -26,7 +27,3 @@ def get_opensky_data():
     response = requests.get(url, timeout=5)
     data = response.json()
     return data
-
-
-if __name__ == "__main__":
-    count_us_aircraft()

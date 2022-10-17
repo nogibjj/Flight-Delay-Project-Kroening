@@ -3,10 +3,8 @@ pytest
 pylint
 click
 ipython
-uvicorn[standard]
-fastapi
 docker
 pandas
-databricks
-databricks-cli
-databricks-sql-connector
+streamlit
+geopandas
+altair
